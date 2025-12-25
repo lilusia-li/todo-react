@@ -1,62 +1,58 @@
 const App = () => {
   return (
-    <div class="todo" data-js-todo>
-      <h1 class="todo__title">To Do List</h1>
-      <form class="todo__form" data-js-todo-new-task-form>
-        <div class="todo__field field">
-          <label class="field__label" for="new-task">New task title</label>
+    <div className="todo" >
+      <h1 className="todo__title">To Do List</h1>
+      <form className="todo__form" >
+        <div className="todo__field field">
+          <label className="field__label" htmlFor="new-task">New task title</label>
           <input
-            class="field__input"
+            className="field__input"
             id="new-task"
             placeholder=" "
             autocomplete="off"
-            data-js-todo-new-task-input
           />
         </div>
-        <button class="button" type="submit"><span>Add</span></button>
+        <button className="button" type="submit">Add</button>
       </form>
-      <form class="todo__form" data-js-todo-search-task-form>
-        <div class="todo__field field">
-          <label class="field__label" for="search-task">Search task</label>
+      <form className="todo__form" >
+        <div className="todo__field field">
+          <label className="field__label" htmlFor="search-task">Search task</label>
           <input
-            class="field__input"
+            className="field__input"
             id="search-task"
             placeholder=" "
             autocomplete="off"
             type="search"
-            data-js-todo-search-task-input
           />
         </div>
       </form>
-      <div class="todo__info">
-        <div class="todo__total-tasks">
-          Total Tasks: <span data-js-todo-total-tasks>0</span>
+      <div className="todo__info">
+        <div className="todo__total-tasks">
+          Total Tasks: <span>0</span>
         </div>
         <button
-          class="todo__delete-all-button"
+          className="todo__delete-all-button"
           type="button"
-          data-js-todo-delete-all-button
         >
           Delete All
         </button>
       </div>
-      <ul class="todo__list" data-js-todo-list>
-        <li class="todo__item todo-item" data-js-todo-item>
+      <ul className="todo__list" >
+        <li className="todo__item todo-item">
           <input
-            class="todo-item__checkbox"
-            id="todo-1"
+            className="todo-item__checkbox"
+            id="task-1"
             type="checkbox"
-            data-js-todo-item-checkbox
+            checked
           />
-          <label class="todo-item__label" for="todo-1" data-js-todo-item-label>
-            Todo 1
+          <label className="todo-item__label" htmlFor="task-1">
+            Task 1
           </label>
           <button
-            class="todo-item__delete-button"
+            className="todo-item__delete-button"
             type="button"
             aria-label="Delete"
             title="Delete"
-            data-js-todo-item-delete-button
           >
             <svg
               width="20"
@@ -75,22 +71,20 @@ const App = () => {
             </svg>
           </button>
         </li>
-        <li class="todo__item todo-item" data-js-todo-item>
+        <li className="todo__item todo-item" >
           <input
-            class="todo-item__checkbox"
-            id="todo-1"
+            className="todo-item__checkbox"
+            id="task-2"
             type="checkbox"
-            data-js-todo-item-checkbox
           />
-          <label class="todo-item__label" for="todo-1" data-js-todo-item-label>
-            Todo 1
+          <label className="todo-item__label" htmlFor="task-2" >
+            Task 2
           </label>
           <button
-            class="todo-item__delete-button"
+            className="todo-item__delete-button"
             type="button"
             aria-label="Delete"
             title="Delete"
-            data-js-todo-item-delete-button
           >
             <svg
               width="20"
@@ -110,7 +104,7 @@ const App = () => {
           </button>
         </li>
       </ul>
-      <div class="todo__empty-message" data-js-todo-empty-message></div>
+      <div className="todo__empty-message"></div>
     </div>
   )
 }
