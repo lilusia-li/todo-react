@@ -1,63 +1,62 @@
 const App = () => {
   return (
-    <div className="todo">
-      <h1 className="todo__title">To Do List</h1>
-      <form className="todo__form">
-        <div className="todo__field field">
-          <label
-            className="field__label"
-            htmlFor="new-task"
-          >
-            New task
-          </label>
+    <div class="todo" data-js-todo>
+      <h1 class="todo__title">To Do List</h1>
+      <form class="todo__form" data-js-todo-new-task-form>
+        <div class="todo__field field">
+          <label class="field__label" for="new-task">New task title</label>
           <input
-            className="field__input"
+            class="field__input"
             id="new-task"
             placeholder=" "
-            autoComplete="off"
+            autocomplete="off"
+            data-js-todo-new-task-input
           />
         </div>
-        <button className="button" type="submit">Add</button>
+        <button class="button" type="submit"><span>Add</span></button>
       </form>
-      <form className="todo__form">
-        <div className="todo__field field">
-          <label
-            className="field__label"
-            htmlFor="search-task"
-          >
-            Search task
-          </label>
+      <form class="todo__form" data-js-todo-search-task-form>
+        <div class="todo__field field">
+          <label class="field__label" for="search-task">Search task</label>
           <input
-            className="field__input"
+            class="field__input"
             id="search-task"
             placeholder=" "
-            autoComplete="off"
+            autocomplete="off"
             type="search"
+            data-js-todo-search-task-input
           />
         </div>
       </form>
-      <div className="todo__info">
-        <div className="todo__total-tasks">Total tasks: <span>0</span></div>
-        <button className="todo__delete-all-button" type="button">Delete all</button>
+      <div class="todo__info">
+        <div class="todo__total-tasks">
+          Total Tasks: <span data-js-todo-total-tasks>0</span>
+        </div>
+        <button
+          class="todo__delete-all-button"
+          type="button"
+          data-js-todo-delete-all-button
+        >
+          Delete All
+        </button>
       </div>
-      <ul className="todo__list">
-        <li className="todo__item todo-item">
+      <ul class="todo__list" data-js-todo-list>
+        <li class="todo__item todo-item" data-js-todo-item>
           <input
-            className="todo-item__checkbox"
-            id="task-1"
+            class="todo-item__checkbox"
+            id="todo-1"
             type="checkbox"
-            checked
+            data-js-todo-item-checkbox
           />
-          <label
-            className="todo-item__label"
-            htmlFor="task-1"
-          >
-            Task 1
+          <label class="todo-item__label" for="todo-1" data-js-todo-item-label>
+            Todo 1
           </label>
           <button
-            className="todo-item__delete-button"
+            class="todo-item__delete-button"
+            type="button"
             aria-label="Delete"
             title="Delete"
+            data-js-todo-item-delete-button
           >
             <svg
               width="20"
@@ -69,29 +68,29 @@ const App = () => {
               <path
                 d="M15 5L5 15M5 5L15 15"
                 stroke="#757575"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               />
             </svg>
           </button>
         </li>
-        <li className="todo__item todo-item">
+        <li class="todo__item todo-item" data-js-todo-item>
           <input
-            className="todo-item__checkbox"
-            id="task-2"
+            class="todo-item__checkbox"
+            id="todo-1"
             type="checkbox"
+            data-js-todo-item-checkbox
           />
-          <label
-            className="todo-item__label"
-            htmlFor="task-2"
-          >
-            Task 2
+          <label class="todo-item__label" for="todo-1" data-js-todo-item-label>
+            Todo 1
           </label>
           <button
-            className="todo-item__delete-button"
+            class="todo-item__delete-button"
+            type="button"
             aria-label="Delete"
             title="Delete"
+            data-js-todo-item-delete-button
           >
             <svg
               width="20"
@@ -103,15 +102,15 @@ const App = () => {
               <path
                 d="M15 5L5 15M5 5L15 15"
                 stroke="#757575"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               />
             </svg>
           </button>
         </li>
       </ul>
-      <div className="todo__empty-message"></div>
+      <div class="todo__empty-message" data-js-todo-empty-message></div>
     </div>
   )
 }

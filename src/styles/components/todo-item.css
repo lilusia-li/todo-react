@@ -5,35 +5,44 @@
   padding-left: 10px;
   border: var(--border);
   border-radius: var(--border-radius);
+  transition-duration: var(--transition-duration);
 
   &:hover {
     background-color: var(--color-gray-1);
   }
 
-  &.is-disappearing {
+  /* Анимация по удалению задачи */
+  /* &.is-disappearing {
     opacity: 0;
     translate: 0 -75%;
     transition-duration: calc(var(--transition-duration) * 2);
     pointer-events: none;
 
     & ~ .todo-item {
-      translate: 0 calc((100% + var(--todoListRowGap)) * -1);
+      translate: 0 calc ((100% + var(--todoListRowGap)) * -1);
       transition-delay: var(--transition-duration);
       transition-duration: var(--transition-duration);
       pointer-events: none;
     }
-  }
+  } */
 }
 
 .todo-item__checkbox {
   flex-shrink: 0;
   appearance: none;
+
   position: relative;
   width: 20px;
   height: 20px;
-  margin: 0;
   border: 1px solid var(--color-gray-4);
   border-radius: 4px;
+  margin: 0;
+
+  &:not(:checked) {
+    &::after {
+      opacity: 0;
+    }
+  }
 
   &:checked {
     background-color: var(--color-dark-2);
@@ -45,21 +54,16 @@
     }
   }
 
-  &:not(:checked) {
-    &::after {
-      opacity: 0;
-    }
-  }
-
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
     width: 16px;
     height: 16px;
-    background: url('../../assets/icons/icon-check_white.svg') center/contain no-repeat;
+    background: url("../../assets/icons/icon-check_white.svg") center/contain
+      no-repeat;
   }
 }
 
@@ -75,6 +79,7 @@
   align-items: center;
   width: 44px;
   height: 44px;
+
   margin-left: auto;
   padding: 0;
   color: var(--color-gray-4);
@@ -92,6 +97,6 @@
   }
 
   * {
-    pointer-events: none;
+    pointer-ivents: none;
   }
 }
