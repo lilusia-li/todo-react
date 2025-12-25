@@ -9,7 +9,7 @@ const App = () => {
             className="field__input"
             id="new-task"
             placeholder=" "
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
         <button className="button" type="submit">Add</button>
@@ -21,7 +21,7 @@ const App = () => {
             className="field__input"
             id="search-task"
             placeholder=" "
-            autocomplete="off"
+            autoComplete="off"
             type="search"
           />
         </div>
@@ -43,7 +43,7 @@ const App = () => {
             className="todo-item__checkbox"
             id="task-1"
             type="checkbox"
-            checked
+            defaultChecked
           />
           <label className="todo-item__label" htmlFor="task-1">
             Task 1
@@ -64,9 +64,9 @@ const App = () => {
               <path
                 d="M15 5L5 15M5 5L15 15"
                 stroke="#757575"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>
@@ -96,9 +96,9 @@ const App = () => {
               <path
                 d="M15 5L5 15M5 5L15 15"
                 stroke="#757575"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>
