@@ -17,29 +17,16 @@ const Todo = () => {
   };
 
   const deleteTask = (taskId) => {
-    setTasks(tasks.filter((task) => task.id !== taskId));
+    setTasks(tasksAPI.deleteTask(tasks, taskId));
   };
 
   const toggleTaskComplete = (taskId, isDone) => {
-    setTasks(
-      tasks.map((task) => {
-        if (task.id === taskId) {
-          return { ...task, isDone };
-        }
-        return task;
-      })
-    );
+    setTasks(tasksAPI.toggleCompleteTask(tasks, taskId, isDone));
   };
 
   const addTask = () => {
     if (newTaskTitle.trim().length > 0) {
-      const newTask = {
-        id: crypto?.randomUUID() ?? Date.now().toString(),
-        title: newTaskTitle,
-        isDone: false,
-      };
-
-      setTasks([...tasks, newTask]);
+      setTasks(tasksAPI.addTask(newTaskTitle, tasks));
       setNewTaskTitle("");
       setSearchQuery("");
     }
@@ -49,13 +36,7 @@ const Todo = () => {
     tasksAPI.setTasks(tasks);
   }, [tasks]);
 
-  const clearSearchQuery = searchQuery.trim().toLowerCase();
-  const filteredTasks =
-    clearSearchQuery.length > 0
-      ? tasks.filter((task) =>
-          task.title.toLowerCase().includes(clearSearchQuery)
-        )
-      : null;
+  const filteredTasks = tasksAPI.getFilteredTasks(tasks, searchQuery);
 
   return (
     <div className="todo">
