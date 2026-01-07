@@ -3,34 +3,16 @@ import AddTaskForm from "./AddTaskForm";
 import SearchTaskForm from "./SearchTaskForm";
 import TodoInfo from "./TodoInfo";
 import TodoList from "./TodoList";
+import tasksAPI from "../api/tasksAPI";
 
 const Todo = () => {
-  const [tasks, setTasks] = useState(() => {
-    const savedTasks = localStorage.getItem("tasks");
-
-    if (savedTasks) {
-      return JSON.parse(savedTasks);
-    }
-
-    return [
-      {
-        id: "task-1",
-        isDone: true,
-        title: "Погладить кота",
-      },
-      {
-        id: "task-2",
-        isDone: false,
-        title: "Купить молоко",
-      },
-    ];
-  });
+  const [tasks, setTasks] = useState(tasksAPI.getTasks());
 
   const [newTaskTitle, setNewTaskTitle] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
   const deleteAlltasks = () => {
-    const isConfirmed = confirm("Are you sure tou want to delete all?");
+    const isConfirmed = confirm("Are you sure you want to delete all?");
     if (isConfirmed) setTasks([]);
   };
 
@@ -64,7 +46,7 @@ const Todo = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    tasksAPI.setTasks(tasks);
   }, [tasks]);
 
   const clearSearchQuery = searchQuery.trim().toLowerCase();
