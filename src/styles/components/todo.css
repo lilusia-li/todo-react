@@ -72,7 +72,8 @@
   row-gap: var(--todoListRowGap);
 }
 
-.todo__empty-message {
+.todo__empty-message,
+.todo__loading-message {
   text-align: center;
   color: var(--color-gray-4);
 }
