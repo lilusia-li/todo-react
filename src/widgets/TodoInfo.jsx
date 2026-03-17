@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TasksContext } from "../../context/tasksContext";
+import { TasksContext } from "../context/tasksContext";
 
 const TodoInfo = () => {
   // console.log("Рендер TodoInfo");

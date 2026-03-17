@@ -39,6 +39,8 @@ const tasksAPI = {
   },
 
   addTask: async function (newTaskTitle) {
+    console.log("Запустилась функция addTask из объекта tasksAPI");
+
     const newTask = {
       id: crypto?.randomUUID() ?? Date.now().toString(),
       title: newTaskTitle,

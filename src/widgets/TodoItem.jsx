@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TasksContext } from "../../context/tasksContext";
+import { TasksContext } from "../context/tasksContext";
 
 const TodoItem = (props) => {
   // console.log("Рендер TodoItem");

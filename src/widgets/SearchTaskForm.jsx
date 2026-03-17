@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { TasksContext } from "../../context/tasksContext";
-import Field from "../Field";
+import { TasksContext } from "../context/tasksContext";
+import Field from "../components/Field";
 
 const SearchTaskForm = () => {
   // console.log("Рендер SearchTaskForm");

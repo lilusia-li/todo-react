@@ -1,4 +1,4 @@
-import Todo from "./components/widgets/Todo";
+import Todo from "./widgets/Todo";
 import { TasksProvider } from "./context/tasksContext";
 
 // console.log("Выполняется файл App");

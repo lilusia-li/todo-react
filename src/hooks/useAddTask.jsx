@@ -4,7 +4,7 @@ import { TasksContext } from "../context/tasksContext";
 import tasksAPI from "../api/tasksAPI";
 
 export const useAddTask = () => {
-  // console.log("Использую useAddTask");
+  console.log("Использую хук useAddTask");
 
   const [newTaskTitle, setNewTaskTitle] = useState("");
 

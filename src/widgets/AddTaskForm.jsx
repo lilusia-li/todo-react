@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { TasksContext } from "../../context/tasksContext";
-import { useAddTask } from "../../hooks/useAddTask";
-import Button from "../Button";
-import Field from "../Field";
+import { TasksContext } from "../context/tasksContext";
+import { useAddTask } from "../hooks/useAddTask";
+import Button from "../components/Button";
+import Field from "../components/Field";
 
 const AddTaskForm = () => {
-  // console.log("Рендер AddTaskForm");
+  console.log("Рендер AddTaskForm");
 
   const { isTasksLoading } = useContext(TasksContext);
   const { mutateAsync: addTask, newTaskTitle, setNewTaskTitle } = useAddTask();
@@ -14,6 +14,7 @@ const AddTaskForm = () => {
     event.preventDefault();
     addTask();
   };
+
   return (
     <form className="todo__form" onSubmit={onSubmit}>
       <Field

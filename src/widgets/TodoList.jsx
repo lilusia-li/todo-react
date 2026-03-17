@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 import { useContext } from "react";
-import { TasksContext } from "../../context/tasksContext";
+import { TasksContext } from "../context/tasksContext";
 
 const TodoList = () => {
   // console.log("Рендер TodoList");
