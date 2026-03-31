@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { TasksContext } from "../context/tasksContext";
+import { FilteredTasksContext } from "../context/FilteredTasksContext";
+import { useTasksMutations } from "../hooks/useTasksMutations";
 
 const TodoInfo = () => {
-  // console.log("Рендер TodoInfo");
+  const { isTasksLoading, doneTasks, totalTasks } =
+    useContext(FilteredTasksContext);
 
-  const { isTasksLoading, deleteAllTasks, doneTasks, totalTasks } =
-    useContext(TasksContext);
+  const { deleteAllTasks } = useTasksMutations();
 
   const hasTasks = totalTasks > 0;
 

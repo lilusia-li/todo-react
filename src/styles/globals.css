@@ -2,8 +2,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: start;
-  min-height: 100vh;
-  padding: 100px 30px;
+  height: 100%;
+  padding: 30px;
   color: var(--color-dark-1);
   font-family: "Inter", sans-serif;
   background-color: var(--color-gray-1);
@@ -18,6 +18,16 @@ input,
 label,
 button {
   transition-duration: var(--transition-duration);
+}
+
+div#root {
+  height: 100%;
+}
+
+.beautiful-height {
+  height: 0;
+  flex-grow: 1;
+  overflow: auto;
 }
 
 :focus-visible {

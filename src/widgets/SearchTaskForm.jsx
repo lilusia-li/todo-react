@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { TasksContext } from "../context/tasksContext";
+import { FilteredTasksContext } from "../context/FilteredTasksContext";
 import Field from "../components/Field";
 
 const SearchTaskForm = () => {
   // console.log("Рендер SearchTaskForm");
 
   const { isTasksLoading, searchQuery, setSearchQuery } =
-    useContext(TasksContext);
+    useContext(FilteredTasksContext);
 
   return (
     <form className="todo__form" onSubmit={(event) => event.preventDefault()}>

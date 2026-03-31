@@ -19,6 +19,14 @@ const tasksAPI = {
     }
   },
 
+  setTasks: async function (tasks) {
+    try {
+      localStorage.setItem(TASKS_KEY, JSON.stringify(tasks));
+    } catch (error) {
+      console.warn("Error loading task list to localStorage:", error);
+    }
+  },
+
   getFilteredTasks: async function (searchQuery) {
     const tasks = await this.getTasks();
     if (tasks) {
@@ -30,17 +38,7 @@ const tasksAPI = {
     return null; //дальше не обработан этот случай
   },
 
-  setTasks: async function (tasks) {
-    try {
-      localStorage.setItem(TASKS_KEY, JSON.stringify(tasks));
-    } catch (error) {
-      console.warn("Error loading task list to localStorage:", error);
-    }
-  },
-
   addTask: async function (newTaskTitle) {
-    console.log("Запустилась функция addTask из объекта tasksAPI");
-
     const newTask = {
       id: crypto?.randomUUID() ?? Date.now().toString(),
       title: newTaskTitle,
@@ -64,7 +62,7 @@ const tasksAPI = {
     await this.setTasks([]);
   },
 
-  toggleCompleteTask: async function (taskId, isDone) {
+  toggleTaskComplete: async function (taskId, isDone) {
     const tasks = await this.getTasks();
     if (tasks) {
       await this.setTasks(

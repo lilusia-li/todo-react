@@ -1,12 +1,8 @@
-import { useContext } from "react";
-import { TasksContext } from "../context/tasksContext";
+import { useTasksMutations } from "../hooks/useTasksMutations";
 
 const TodoItem = (props) => {
-  // console.log("Рендер TodoItem");
-
   const { className = "", id, isDone, title } = props;
-
-  const { deleteTask, toggleTaskComplete } = useContext(TasksContext);
+  const { deleteTask, toggleTaskComplete } = useTasksMutations();
 
   return (
     <li className={`todo-item ${className}`}>
@@ -14,7 +10,7 @@ const TodoItem = (props) => {
         className="todo-item__checkbox"
         id={id}
         type="checkbox"
-        checked={isDone}
+        checked={isDone ?? false}
         onChange={(event) => toggleTaskComplete(id, event.target.checked)}
       />
       <label className="todo-item__label" htmlFor={id}>

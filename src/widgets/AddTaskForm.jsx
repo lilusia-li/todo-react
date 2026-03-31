@@ -1,18 +1,24 @@
-import { useContext } from "react";
-import { TasksContext } from "../context/tasksContext";
-import { useAddTask } from "../hooks/useAddTask";
+import { useContext, useState } from "react";
+import { TasksContext } from "../context/TasksContext";
+import { useTasksMutations } from "../hooks/useTasksMutations";
 import Button from "../components/Button";
 import Field from "../components/Field";
+import { FilteredTasksContext } from "../context/FilteredTasksContext";
 
 const AddTaskForm = () => {
-  console.log("Рендер AddTaskForm");
+  const [newTask, setNewTask] = useState("");
+  const { setSearchQuery } = useContext(FilteredTasksContext);
 
   const { isTasksLoading } = useContext(TasksContext);
-  const { mutateAsync: addTask, newTaskTitle, setNewTaskTitle } = useAddTask();
+  const { addTask } = useTasksMutations();
 
   const onSubmit = (event) => {
     event.preventDefault();
-    addTask();
+    if (newTask.trim().length > 0) {
+      addTask(newTask.trim());
+      setNewTask("");
+      setSearchQuery("");
+    }
   };
 
   return (
@@ -21,8 +27,8 @@ const AddTaskForm = () => {
         className="todo__field"
         id="new-task"
         label="New task title"
-        value={newTaskTitle}
-        onInput={(event) => setNewTaskTitle(event.target.value)}
+        value={newTask}
+        onInput={(event) => setNewTask(event.target.value)}
       />
       <Button type="submit" disabled={isTasksLoading}>
         Add

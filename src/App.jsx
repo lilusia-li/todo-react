@@ -1,14 +1,13 @@
 import Todo from "./widgets/Todo";
-import { TasksProvider } from "./context/tasksContext";
-
-// console.log("Выполняется файл App");
+import { TasksProvider } from "./context/TasksContext";
+import { FilteredTasksProvider } from "./context/FilteredTasksContext";
 
 const App = () => {
-  // console.log("Рендер App");
-
   return (
     <TasksProvider>
-      <Todo />
+      <FilteredTasksProvider>
+        <Todo />
+      </FilteredTasksProvider>
     </TasksProvider>
   );
 };
